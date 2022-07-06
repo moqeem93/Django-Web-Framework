@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+{%block base_block%}
+<style>
+    table,th,td{
+    border : 1px solid black;
+    border-collapse: collapse;
+    }
+    th,td{
+padding:5 px;
+text-align :center;
+}
+</style>
+
+
+<body>
+<h1>Student Data</h1>
+<table border="3">
+    <thead>
+    <th>Roll No</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Email</th>
+    <th>Record</th>
+    <th>Date</th>
+    </thead>
+    {%for emp in data%}
+    <tr>
+        <td>{{emp.roll}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.address}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.record}}</td>
+        <td>{{emp.date}}</td>
+        <td><a href="update/{{emp.id}}"> Update</a> <a href="delete/{{emp.id}}">Delete</a></td>
+
+
+    </tr>
+{%endfor%}
+</table><br><br>
+<a href="create/" class="btn btn-primary btn-lg">Insert New Employee</a>
+{%endblock%}
+
+
+</body>
+</html>
